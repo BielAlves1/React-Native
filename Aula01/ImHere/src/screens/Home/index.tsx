@@ -30,6 +30,7 @@ export default function Home() {
             {
                 text: 'Não',
                 style: 'cancel'
+                
             },
         ])
     }
