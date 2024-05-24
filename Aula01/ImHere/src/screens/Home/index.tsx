@@ -10,17 +10,22 @@ export default function Home() {
     function addParticipante() {
         if (participantes.includes(participanteName)) {
             return Alert.alert("AVISO!", "Participante com esse nome já existente na lista.")
+        } else if(participanteName == null || participanteName == ''){
+            console.warn("Você não informou nenhum nome.")
+        } else {
+            setParticipantes(prevState => [...prevState, participanteName]);
+            setParticipanteName('');
         }
-
-        setParticipantes(prevState => [...prevState, participanteName]);
-        setParticipanteName('');
     }
 
     function removeParticipante(name: string) {
-        return Alert.alert("AVISO!", `Deseja remover participante ${name}?`, [
+        Alert.alert("AVISO!", `Deseja remover participante ${name}?`, [
             {
                 text: 'Sim',
-                onPress: () => Alert.alert(`Participante ${name} removido com sucesso!`),
+                onPress: () => {
+                    setParticipantes(prevState => prevState.filter(participante => participante !== name));
+                    Alert.alert(`Participante ${name} removido com sucesso!`);
+                }
             },
             {
                 text: 'Não',
@@ -37,7 +42,9 @@ export default function Home() {
                 <Text style={styles.eventDate}>Sábado, 21 de Dezembro de 2024.</Text>
 
                 <View style={styles.form}>
-                    <TextInput style={styles.input} value={participanteName} placeholder="Nome Participante" placeholderTextColor="#6b6b6b" onChangeText={e => setParticipanteName(e)} />
+                    <TextInput style={styles.input} value={participanteName} 
+                    placeholder="Nome Participante" placeholderTextColor="#6b6b6b" 
+                    onChangeText={e => setParticipanteName(e)} />
 
                     <TouchableOpacity style={styles.btnAdd} onPress={addParticipante}>
                         <Text style={styles.btnText}>+</Text>
