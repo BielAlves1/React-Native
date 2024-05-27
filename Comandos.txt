@@ -25,6 +25,8 @@ ou
 
 Caso dê problema durante o start, utilizar o comando:
 -npm i --force --web
+OU
+npx expo install react-native-web react-dom @expo/metro-runtime
 
 
 https://reactnavigation.org/   <= Link para o site reactnavigation e utilizar os comandos de instalação dos componentes para navegação abaixo.
