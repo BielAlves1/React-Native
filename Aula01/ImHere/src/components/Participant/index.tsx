@@ -12,7 +12,7 @@ export function Participant({ name, onRemove }: Props) {
             <View style={styles.content}>
                 <Text style={styles.name}>{name}</Text>
 
-                <TouchableOpacity style={styles.btnAdd} onPress={onRemove}>
+                <TouchableOpacity style={styles.btnRemove} onPress={onRemove}>
                     <Text style={styles.btnText}>-</Text>
                 </TouchableOpacity>
             </View>

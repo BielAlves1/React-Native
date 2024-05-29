@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         marginRight: 15
     },
-    btnAdd: {
+    btnRemove: {
         width: 50,
         height: 50,
         backgroundColor: 'rgba(139, 0, 0, 1)',
